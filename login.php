@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-require __DIR__.'/views/header.php';
+require __DIR__. "/views/header.php";
+
 
 ?>
 
@@ -17,7 +18,10 @@ require __DIR__.'/views/header.php';
 		<label for="password">Password:</label>
 		<input class="form-password" type="password" name="password" required>
 </div>
+
+<button type="submit" class="button">Log in</button>
+
 </form>
 </section>
 
-<? php	require __DIR__.'/views/footer.php'; ?>
+<?php	require __DIR__."/views/footer.php"; ?>

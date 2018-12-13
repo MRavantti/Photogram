@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-require __DIR__.'/views/header.php';
+require __DIR__. "/views/header.php";
+
 
 ?>
 
@@ -11,12 +12,12 @@ require __DIR__.'/views/header.php';
 
 		<div class="register-form">
 			<label for="first-name">First Name:</label>
-			<input class="form-first-name" type="text" name="first-name" placeholder="First Name" required>
+			<input class="form-first-name" type="text" name="first_name" placeholder="First Name" required>
 		</div>
 
 		<div class="register-form">
 			<label for="last-name">Last Name:</label>
-			<input class="form-last-name" type="text" name="last-name" placeholder="Last Name" required>
+			<input class="form-last-name" type="text" name="last_name" placeholder="Last Name" required>
 		</div>
 
 		<div class="register-form">
@@ -25,8 +26,8 @@ require __DIR__.'/views/header.php';
 		</div>
 
 		<div class="register-form">
-			<label for="user-name">User Name:</label>
-			<input class="form-user-name" type="text" name="user-name" placeholder="User Name" required>
+			<label for="username">User Name:</label>
+			<input class="form-user-name" type="text" name="username" placeholder="Username" required>
 		</div>
 
 		<div class="register-form">
@@ -34,13 +35,14 @@ require __DIR__.'/views/header.php';
 			<input class="form-password" type="password" name="password" required>
 		</div>
 
-		<div class="register-form">
+		<!-- <div class="register-form">
 			<label for="password">Confirm Password:</label>
 			<input class="form-password" type="password" name="password" required>
-		</div>
+		</div> -->
 
+		<button type="submit" class="button">Register</button>
 	</form>
 </section>
 
 
-<? php	require __DIR__.'/views/footer.php'; ?>
+<?php	require __DIR__."/views/footer.php"; ?>

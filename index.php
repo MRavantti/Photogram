@@ -2,9 +2,11 @@
 
 <h1><?php echo $config['title']; ?></h1>
     <p>This is the home page.</p>
+
     <?php if (isset($_SESSION['user'])): ?>
         <p>Welcome, <?php echo $_SESSION['user']['first_name']; ?>!</p>
     <?php endif; ?>
+
 	<?php if (!isset($_SESSION["user"])): ?>
 		<h1><a href="/register.php">Register!</a> </h1>
 		<h1><a href="/login.php">Login!</a></h1>

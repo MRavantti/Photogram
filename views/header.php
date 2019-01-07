@@ -16,3 +16,5 @@ require __DIR__."/../app/autoload.php";
   <title>Photogram</title>
 </head>
 <body>
+
+<?php require __DIR__. "/navigation.php"; ?>

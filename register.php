@@ -8,15 +8,16 @@ require __DIR__. "/views/header.php";
 ?>
 
 <section class="register-section">
+
 	<form action="/app/users/register.php" method="post">
 
 		<div class="register-form">
-			<label for="first-name">First Name:</label>
+			<label for="first_name">First Name:</label>
 			<input class="form-first-name" type="text" name="first_name" placeholder="First Name" required>
 		</div>
 
 		<div class="register-form">
-			<label for="last-name">Last Name:</label>
+			<label for="last_name">Last Name:</label>
 			<input class="form-last-name" type="text" name="last_name" placeholder="Last Name" required>
 		</div>
 
@@ -35,14 +36,21 @@ require __DIR__. "/views/header.php";
 			<input class="form-password" type="password" name="password" required>
 		</div>
 
-		<!-- <div class="register-form">
-			<label for="password">Confirm Password:</label>
-			<input class="form-password" type="password" name="password" required>
-		</div> -->
+		<div class="register-form">
+			<label for="confirm_password">Confirm Password:</label>
+			<input class="form_password" type="password" name="confirm_password" required>
+		</div>
 
 		<button type="submit" class="button">Register</button>
 	</form>
-</section>
+	<h1>
 
+<?php
+if (isset($_SESSION["error"])){
+    echo $_SESSION["error"];
+  }
+	?>
+</h1>
+</section>
 
 <?php	require __DIR__."/views/footer.php"; ?>

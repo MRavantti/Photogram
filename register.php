@@ -27,8 +27,8 @@ require __DIR__. "/views/header.php";
 		</div>
 
 		<div class="register-form">
-			<label for="username">User Name:</label>
-			<input class="form-user-name" type="text" name="username" placeholder="Username" required>
+			<label for="username">Username:</label>
+			<input class="form-username" type="text" name="username" placeholder="Username" required>
 		</div>
 
 		<div class="register-form">

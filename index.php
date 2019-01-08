@@ -4,7 +4,7 @@
     <p>This is the home page.</p>
 
     <?php if (isset($_SESSION['user'])): ?>
-        <p>Welcome, <?php echo $_SESSION['user']['first_name']; ?>!</p>
+        <p>Welcome, <?php echo $_SESSION["user"]["username"]; ?>!</p>
     <?php endif; ?>
 
 	<?php if (!isset($_SESSION["user"])): ?>

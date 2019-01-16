@@ -5,12 +5,12 @@
 
     <?php if (isset($_SESSION['user'])): ?>
         <p>Welcome, <?php echo $_SESSION["user"]["username"]; ?>!</p>
-    <?php endif; ?>
 
-	<?php if (!isset($_SESSION["user"])): ?>
+				<a href="/newPost.php">Create a new Post</a>
+<?php else: ?>
 		<h1><a href="/register.php">Register!</a> </h1>
 		<h1><a href="/login.php">Login!</a></h1>
-	<?php endif; ?>
+<?php endif; ?>
 
 
 

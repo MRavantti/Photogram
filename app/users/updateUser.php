@@ -98,7 +98,46 @@ if (isset($_POST["user_description"], $_POST["username"],$_POST["email"], $_POST
 
 
 	redirect("/profile.php");
+}
 
+if (isset($_POST["old-password"], $_POST["new-password"], $_POST["confirm-password"])) {
+
+
+	if ($_POST["new-password"] === $_POST["confirm-password"]) {
+
+		$id = $_SESSION["user"]["id"];
+		$newPass = password_hash($_POST["new-password"], PASSWORD_DEFAULT);
+
+		$sql = "SELECT password FROM users WHERE id = :id";
+
+		$stmt = $pdo->prepare($sql);
+		if (!$stmt) {
+			die(var_dump($pdo->errorInfo()));
+		}
+
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+		$stmt->execute();
+
+		$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		if (password_verify($_POST["old-password"], $user["password"])) {
+
+			$sql = "UPDATE users SET password = :password WHERE id = :id";
+
+			$stmt = $pdo->prepare($sql);
+
+			if (!$stmt) {
+				die(var_dump($pdo->errorInfo()));
+			}
+
+			$stmt->bindParam(":password", $newPass, PDO::PARAM_STR);
+			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+			$stmt->execute();
+
+			redirect("/profile.php");
+		}
+	}
+	redirect("/updateUser.php");
 }
 
 echo "hej";

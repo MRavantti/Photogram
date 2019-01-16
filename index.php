@@ -1,5 +1,5 @@
 <?php require __DIR__."/views/header.php"; ?>
-<?php require __DIR__. "/app/posts/posts.php"; ?>
+
 <h1><?php echo $config['title']; ?></h1>
     <p>This is the home page.</p>
 
@@ -16,10 +16,19 @@
 						<div class="">
 
 					<img src="/app/posts/post_img/<?=$post["img"] ?>" alt="">
-				</div>
+					<div class="">
 					<small><?= $post["post_text"] ?></small>
+
+					<form data-id="<?= $postId ?>" method="post" action="/app/posts/likes.php">
+						<input type="hidden" name="post_id" value="<?= $postId ?>">
+						<input type="hidden" name="action" value="<?= $action ?>">
+						<button data-id="<?= $postId ?>" class="like-btn like-btn-<?= $action ?>" type="submit" name="action">Like</button>
+					</form>
 				</div>
+				</div>
+					<small><span>Likes: <?= count($likes). " "; ?></span> </small>
 				<?php endforeach; ?>
+			</div>
 
 <?php else: ?>
 		<h1><a href="/register.php">Register!</a> </h1>

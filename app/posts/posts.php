@@ -1,9 +1,8 @@
 <?php
 
-declare(strict_types=1);
 
 
-$sql = "SELECT username, user_id, post_text, img, post_date FROM `users` AS u
+$sql = "SELECT * FROM `users` AS u
 				INNER JOIN `posts` AS p ON p.user_id = u.id";
 
 $stmt = $pdo->prepare($sql);
@@ -17,7 +16,7 @@ $stmt->execute();
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $posts = array_reverse($posts);
 
-foreach ($posts as $post) :
+foreach ($posts as $post) {
 	$userId = $post["user_id"];
 	$username = $post["username"];
 	$postDate = $post["post_date"];
@@ -61,6 +60,5 @@ foreach ($posts as $post) :
 	} else {
 		$action = "liked";
 	}
+}
 ?>
-
-<?php endforeach ?>

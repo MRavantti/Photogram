@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require __DIR__."/../autoload.php";
 
+
 if (isset($_FILES["img"])) {
 	$postText = filter_var($_POST["post_text"]);
 	$date = date("Y-m-d");

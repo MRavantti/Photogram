@@ -13,6 +13,18 @@
 	<br><br>
 	<a href="updateUser.php">Edit profile</a>
 
+	<div class="user-posts">
+		<h1>Your posts</h1>
+		<?php foreach ($imgs as $img): ?>
+			<a href="/editPost.php?post_id=<?= $img["img"]; ?>">
+			<div class="post-img">
+				<img src="/app/posts/post_img/<?= $img["img"]; ?>">
+
+			</div>
+		<?php endforeach; ?>
+
+	</div>
+
 <?php endif; ?>
 
 <?php	require __DIR__."/views/footer.php"; ?>

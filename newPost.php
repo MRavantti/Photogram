@@ -6,7 +6,7 @@
 	<div class="new-post">
 
 	<form class="new-post-form" action="/app/posts/newPost.php" method="post" enctype="multipart/form-data">
-		<input class="new-img" type="file" name="img">
+		<input class="img" type="file" name="img">
 		<br><br>
 		<textarea name="post_text" placeholder="Enter a description..."></textarea>
 		<br>

@@ -16,3 +16,10 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
+
+function FunctionName($value='')
+{
+	// code...
+}
+
+?>

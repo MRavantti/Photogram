@@ -4,53 +4,42 @@ declare(strict_types=1);
 
 require __DIR__."/../autoload.php";
 
-
-if (isset($_FILES["img"])) {
-	$postText = filter_var($_POST["post_text"]);
-	$date = date("Y-m-d");
-	$id = $_SESSION["user"]["id"];
-	$username = $_SESSION["user"]["username"];
-	$folder = $id;
+if (isset($_FILES["img"], $_POST["post_text"])) {
+	$description = trim(filter_var($_POST["post_text"], FILTER_SANITIZE_STRING));
 	$img = $_FILES["img"];
-	$imgname = $img["name"];
-	$imgSave = $id."_".$date."_".$imgname;
 
-	if (!is_dir(__DIR__. "/post_img/")) {
-		mkdir(__DIR__. "/post_img/");
-	}
+	filter_var($img["name"], FILTER_SANITIZE_STRING);
+		$id = $_SESSION["user"]["id"];
+		$extension = pathinfo($img["name"])["extension"];
+		$fileName = pathinfo($img["name"])["filename"];
+		$username = $_SESSION["user"]["username"];
+		$fileTime = date("ymd:H:i:s");
+		$userFolder = $id;
+		$imgName = $id."-".$fileTime.uniqid().".".$extension;
 
-	$path = __DIR__. "/post_img/";
+		$sql = "INSERT INTO posts(img, post_text, user_id) VALUES(:img, :post_text, :user_id)";
 
-	if (file_exists($path.$img["name"])) {
-		redirect("/app/users/newPost.php");
-		die;
-	}
+		$stmt = $pdo->prepare($sql);
 
-	$sql = "INSERT INTO posts (img, post_date, post_text, user_id, user_name)
-					VALUES (:img, :post_date, :post_text, :user_id, :user_name)";
+		if (!$stmt) {
+			die(var_dump($pdo->errorInfo()));
+		}
 
-	$stmt = $pdo->prepare($sql);
+		$stmt->bindParam(":img", $imgName, PDO::PARAM_STR);
+		$stmt->bindParam(":post_text", $description, PDO::PARAM_STR);
+		$stmt->bindParam(":user_id", $id, PDO::PARAM_INT);
 
-	if (!$stmt) {
-		die(var_dump($pdo->errorInfo()));
-	}
+		$stmt->execute();
 
-	$stmt->bindParam(":img", $imgSave, PDO::PARAM_STR);
-	$stmt->bindParam(":post_text", $postText, PDO::PARAM_STR);
-	$stmt->bindParam(":user_name", $username, PDO::PARAM_STR);
-	$stmt->bindParam(":user_id", $id, PDO::PARAM_INT);
-	$stmt->bindParam(":post_date", $date, PDO::PARAM_STR);
-	$stmt->execute();
+		$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-	$_SESSION["posts"]["img"] = $imgSave;
-	$_SESSION["posts"]["post_text"] = $postText;
-	$_SESSION["posts"]["user_name"] = $username;
-	$_SESSION["posts"]["user_id"] = $id;
-	$_SESSION["posts"]["post_date"] = $date;
+		if (!is_dir(__DIR__. "/post_img/$userFolder")) {
+			mkdir(__DIR__. "/post_img/$userFolder");
+		}
 
-	$oldPath = $img["tmp_name"];
-	$newPath = $path.$imgSave;
-	move_uploaded_file($oldPath, $newPath);
+		move_uploaded_file($_FILES["img"]["tmp_name"], __DIR__."/post_img/$userFolder/$imgName");
 
-	redirect("/");
+		redirect("/");
+
 }
+echo "lol";

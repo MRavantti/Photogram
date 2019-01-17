@@ -193,6 +193,7 @@ a {
 }
 
 .edit-profile-container {
+  position: absolute;
   margin-top: 200px;
 }
 

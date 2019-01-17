@@ -15,3 +15,4 @@ $stmt->execute();
 $imgs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 return $imgs;
+?>

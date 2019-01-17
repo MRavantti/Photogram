@@ -23,10 +23,11 @@
 		<h1>Your posts</h1>
 		<?php foreach ($imgs as $img): ?>
 			<div class="user-posts">
-			<a href="/editPost.php?post_id=<?= $img["img"]; ?>">
+			<a href="/editPost.php?post_id=<?= $img["img"];?>">
 				<img class="post-img" src="/app/posts/post_img/<?= $img["img"]; ?>">
 
 			</div>
+			<?php print_r($img["img"]) ?>
 		<?php endforeach; ?>
 	</div>
 </section>

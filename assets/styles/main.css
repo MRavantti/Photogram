@@ -191,3 +191,7 @@ a {
 .change-password {
   margin-left: 10px;
 }
+
+img {
+  max-width: 400px;
+}

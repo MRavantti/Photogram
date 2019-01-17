@@ -33,12 +33,12 @@ require __DIR__. "/views/header.php";
 
 		<div class="register-form">
 			<label for="password">Password:</label>
-			<input class="form-password" type="password" name="password" required>
+			<input class="form-password" type="password" name="password" required placeholder="Password">
 		</div>
 
 		<div class="register-form">
 			<label for="confirm_password">Confirm Password:</label>
-			<input class="form_password" type="password" name="confirm_password" required>
+			<input class="form_password" type="password" name="confirm_password" required placeholder="Confirm Password">
 		</div>
 
 		<button type="submit" class="button">Register</button>

@@ -16,7 +16,7 @@ require __DIR__. "/views/header.php";
 
 	<div class="login-form">
 		<label for="password">Password:</label>
-		<input class="form-password" type="password" name="password" required>
+		<input class="form-password" type="password" name="password" required placeholder="Password">
 </div>
 
 <button type="submit" class="button">Log in</button>

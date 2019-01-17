@@ -183,3 +183,11 @@ a {
   border: 1px solid black;
   border-radius: 2px;
 }
+
+.user-info {
+  margin-left: 10px;
+}
+
+.change-password {
+  margin-left: 10px;
+}

@@ -1,0 +1,201 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.logo {
+  margin-left: 125px;
+  z-index: 99;
+}
+
+.index {
+  margin-top: 74px;
+}
+
+.feed {
+  display: inline-block;
+  margin: 0 10px;
+  max-width: 115px;
+  height: 148px;
+}
+
+.post-img {
+  max-width: 115px;
+}
+
+.like-btn {
+  max-width: 50px;
+  border-radius: 2px;
+  background-color: lightgrey;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.likes {
+  margin-left: 20px;
+}
+
+.create-post {
+  border: 2px solid black;
+  border-radius: 6px;
+  margin: 100px 0 0 135px;
+  width: 140px;
+  padding: 2px;
+}
+
+.nav {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  top: 0;
+  height: 10vh;
+  width: 100%;
+  z-index: 2;
+}
+
+.burger-icon {
+  position: absolute;
+  align-self: center;
+  display: block;
+  height: auto;
+  right: 1vw;
+  z-index: 4;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+
+.bar-one,
+.bar-two,
+.bar-three {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.6s;
+  border-radius: 10px;
+}
+
+.transform .bar-one {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.transform .bar-two {
+  opacity: 0;
+}
+
+.transform .bar-three {
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.mobile-menu-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  transition: 0.5s;
+}
+
+.mobile-menu-items div {
+  margin: 100px 0;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.toggle {
+  transform: none;
+}
+
+.profile-img {
+  max-width: 100px;
+  border-radius: 100%;
+}
+
+.toggle {
+  transform: none;
+}
+
+.new-post-container {
+  margin-top: 100px;
+}
+
+.new-post {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.new-post-btn {
+  background-color: lightgrey;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.profile-container {
+  margin-top: 100px;
+}
+
+.login-section {
+  margin-top: 100px;
+}
+
+.update-user-btn {
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: lightgrey;
+  width: 90px;
+  padding: 2px;
+}
+
+.user-posts {
+  display: inline-block;
+  margin: 0 10px;
+  max-width: 115px;
+  height: 148px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-section {
+  margin-top: 100px;
+  padding-left: 5px;
+}
+
+.register-form {
+  margin-top: 10px;
+}
+
+.button {
+  margin-top: 10px;
+  background-color: lightgrey;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.user-info {
+  margin-left: 10px;
+}
+
+.change-password {
+  margin-left: 10px;
+}
+
+.edit-profile-container {
+  margin-top: 200px;
+}
+
+.edit-post-img {
+  max-width: 200px;
+}

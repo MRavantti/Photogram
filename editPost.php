@@ -7,7 +7,7 @@
 <section class="edit-profile-container">
 
     <div>
-      <img class="edit-post-img" src="/app/posts/post_img/<?= $post["img"]; ?>">
+      <img class="edit-post-img" src="/app/posts/post_img/<?=$_SESSION["user"]["id"]."/".$post["img"]; ?>">
 
       <form class="editpost-form" action="/app/posts/editpost.php?post_id=<?= $_GET['post_id']; ?>" method="post" enctype="multipart/form-data">
         <button type="submit" name="delete" value="<?= $post["img"] ?>"> Delete post</button>

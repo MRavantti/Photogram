@@ -8,23 +8,32 @@ require __DIR__."/../autoload.php";
 
 if (isset($_POST["delete"])) {
 
+	$postId = $_POST["delete"];
+	$userId = (int)$_SESSION["user"]["id"];
+	$userFolder = $userId;
+	$userPosts = getPostByUser($userId, $pdo);
 
-	$postImg = $_POST["delete"];
+	foreach ($userPosts as $post) {
+		if ($postId === $post["id"]) {
+			$imgName = $post["img"];
 
-	$username = $_SESSION["user"]["username"];
+			$sql = "DELETE FROM posts WHERE id = :id AND img = :img";
+			$stmt = $pdo->prepare($sql);
 
-	$sql = "DELETE FROM posts WHERE img = :img";
-	$stmt = $pdo->prepare($sql);
+			if (!$stmt) {
+				die(var_dump($pdo->errorInfo()));
+			}
 
-	if (!$stmt) {
-		$_SESSION["error"] = "There was an error, please try again.";
-		redirect("/");
-		exit;
+			$stmt->bindParam(":id", $postId, PDO::PARAM_INT);
+			$stmt->bindParam(":img", $imgName, PDO::PARAM_STR);
+
+			$stmt->execute();
+
+			$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			unlink(__DIR__. "/post_img/$userFolder/$imgName");
+
+			redirect("/");
+		}
 	}
-
-	$stmt->bindParam(":id", $postImg, PDO::PARAM_INT);
-	$stmt->execute();
-
-
-	redirect("/");
 }

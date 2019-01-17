@@ -17,10 +17,9 @@
 					<img class="post-img" src="/app/posts/post_img/<?=$post["img"] ?>" alt="">
 					<small class="description"><?= $post["post_text"] ?></small>
 
-					<form data-id="<?= $postId ?>" method="post" action="/app/posts/likes.php">
-						<input type="hidden" name="post_id" value="<?= $postId ?>">
-						<input type="hidden" name="action" value="<?= $action ?>">
-						<button data-id="<?= $postId ?>" class="like-btn" type="submit" name="action">Like</button>
+					<form class="like" method="post" action="/app/posts/likes.php">
+						<input type="hidden" name="post_id" value="<?= $post["id"] ?>">
+						<button data-id="<?= $postId ?>" class="like-btn" type="submit" name="likes">Like</button>
 					</form>
 					<small class="likes">Likes: <?= count($likes). " "; ?></small>
 				</div>

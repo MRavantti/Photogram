@@ -1,10 +1,13 @@
-<?php require __DIR__."/views/header.php"; ?>
+<?php
 
-<?php if (!isset($_SESSION["user"])): ?>
+require __DIR__."/views/header.php";
 
-	<?php redirect("/"); ?>
+if (!isset($_SESSION["user"])){
 
-<?php else: ?>
+ redirect("/");
+}
+$userPosts = getPostByUser($_SESSION["user"]["id"], $pdo);
+ ?>
 	<section class="profile-container">
 
 		<div class="profile-info">
@@ -21,17 +24,19 @@
 
 
 		<h1>Your posts</h1>
-		<?php foreach ($imgs as $img): ?>
+		<?php foreach ($userPosts as $post): ?>
 			<div class="user-posts">
-			<a href="/editPost.php?post_id=<?= $img["img"];?>">
-				<img class="post-img" src="/app/posts/post_img/<?= $img["img"]; ?>">
+				<img class="post-img" src="<?='./app/posts/post_img/'.$_SESSION["user"]["id"].'/'.$post["img"];?>">
+				<form class="editpost-form" action="/app/posts/editpost.php" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="page" value="<?='/profile.php;'?>">
+	        <button type="submit" name="delete" value="<?= $post["id"] ?>"> Delete post</button>
+	      </form>
 
 			</div>
-			<?php print_r($img["img"]) ?>
 		<?php endforeach; ?>
 	</div>
 </section>
 
-<?php endif; ?>
+
 
 <?php	require __DIR__."/views/footer.php"; ?>

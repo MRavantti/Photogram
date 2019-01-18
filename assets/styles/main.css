@@ -4,7 +4,6 @@ a {
 }
 
 .logo {
-  margin-left: 125px;
   z-index: 99;
 }
 
@@ -14,21 +13,12 @@ a {
 
 .feed {
   display: inline-block;
-  margin: 0 10px;
-  max-width: 115px;
-  height: 148px;
+  max-width: 100vw;
+  padding: 10px;
 }
 
 .post-img {
-  max-width: 115px;
-}
-
-.like-btn {
-  max-width: 50px;
-  border-radius: 2px;
-  background-color: lightgrey;
-  margin-left: 20px;
-  margin-top: 10px;
+  max-width: 100%;
 }
 
 .likes {
@@ -36,10 +26,12 @@ a {
 }
 
 .create-post {
+  align-self: center;
+  background-color: lightgrey;
   border: 2px solid black;
   border-radius: 6px;
-  margin: 100px 0 0 135px;
-  width: 140px;
+  width: 77px;
+  height: 27px;
   padding: 2px;
 }
 
@@ -47,19 +39,21 @@ a {
   position: fixed;
   display: flex;
   flex-direction: row;
+
+  justify-content: space-between;
   background-color: white;
   top: 0;
   height: 10vh;
   width: 100%;
   z-index: 2;
+  padding: 0 5px;
 }
 
 .burger-icon {
-  position: absolute;
   align-self: center;
   display: block;
   height: auto;
-  right: 1vw;
+  right: 0;
   z-index: 4;
   padding: 15px 10px;
   cursor: pointer;
@@ -190,8 +184,4 @@ a {
 
 .change-password {
   margin-left: 10px;
-}
-
-img {
-  max-width: 400px;
 }

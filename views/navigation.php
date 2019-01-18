@@ -6,7 +6,9 @@ declare(strict_types=1);
 <nav class="nav">
 			<!-- Burger menu icon -->
 
-			<h1 class="logo"><?php echo $config['title']; ?></h1>
+			<div class="create-post"><a href="/newPost.php">New Post</a></div>
+
+			<h1 class="logo"><a href="/"><?php echo $config['title']; ?></a></h1>
 
 			<div class="burger-icon" id="burger-icon">
 				<div id="bar-one" class="bar-one"></div>

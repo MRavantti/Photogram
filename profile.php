@@ -20,19 +20,19 @@ $userPosts = getPostByUser($_SESSION["user"]["id"], $pdo);
 	<div class="update-user-btn"><a href="updateUser.php">Edit profile</a></div>
 </div>
 
-	<div class="user-posts-container">
+	<div class="feed-container">
 
-
-		<h1>Your posts</h1>
 		<?php foreach ($userPosts as $post): ?>
-			<div class="user-posts">
+			<div class="feed">
 				<img class="post-img" src="<?='./app/posts/post_img/'.$_SESSION["user"]["id"].'/'.$post["img"];?>">
-				<form class="editpost-form" action="/app/posts/delete.php" method="post" enctype="multipart/form-data">
+				<small class="description"><?= $post["post_text"] ?></small><br>
+				<small class="likes">Likes: <?= (countPostLikes($post['id'], $pdo ) > 0) ? countPostLikes($post['id'], $pdo) : '0'; ?></small>
+				<form action="/app/posts/delete.php" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="page" value="<?='/profile.php;'?>">
 	        <button class="button" type="submit" name="delete" value="<?= $post["id"] ?>"> Delete post</button>
 	      </form>
-
 			</div>
+
 		<?php endforeach; ?>
 	</div>
 </section>

@@ -11,6 +11,7 @@ input {
 }
 
 textarea {
+  margin-top: 10px;
   overflow: auto;
   resize: none;
   outline: none;

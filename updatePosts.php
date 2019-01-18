@@ -20,7 +20,6 @@ $userPosts = getPostByUser((int)$_SESSION["user"]["id"], $pdo);
 	<form action="/app/posts/updatePost.php" method="post" enctype="multipart/form-data" class="description-form">
 		<img class="post-img" src="<?="/app/posts/post_img/".$_SESSION["user"]["id"].'/'.$post["img"];?>">
 
-		<label for="description">Change description</label>
 		<textarea type="text" name="post_text" placeholder="<?= $post["post_text"]; ?>" value="<?= $post["post_text"]; ?>"></textarea>
 		<button type="submit" name="id" value="<?= $post["id"]; ?>">Update</button>
 	</form>

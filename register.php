@@ -1,11 +1,4 @@
-<?php
-
-declare(strict_types=1);
-
-require __DIR__. "/views/header.php";
-
-
-?>
+<?php require __DIR__. "/views/header.php"; ?>
 
 <section class="register-section">
 
@@ -43,14 +36,7 @@ require __DIR__. "/views/header.php";
 
 		<button type="submit" class="button">Register</button>
 	</form>
-	<h1>
 
-<?php
-if (isset($_SESSION["error"])){
-    echo $_SESSION["error"];
-  }
-	?>
-</h1>
 </section>
 
 <?php	require __DIR__."/views/footer.php"; ?>

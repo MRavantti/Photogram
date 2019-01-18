@@ -7,8 +7,8 @@ require __DIR__."/../autoload.php";
 if (isset($_POST["first_name"], $_POST["last_name"], $_POST["email"], $_POST["username"], $_POST["password"], $_POST['confirm_password']))
 {
 
-	if ($_POST["password"] !== $_POST["confirm_password"]) {
-
+	if ($_POST["password"] !== $_POST["confirm_password"])
+	{
 		$_SESSION["error"] = "Passwords don't match";
 		redirect("/register.php");
 
@@ -21,23 +21,26 @@ if (isset($_POST["first_name"], $_POST["last_name"], $_POST["email"], $_POST["us
 		$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 		$sql = "SELECT username, email FROM users WHERE username = :username AND email = :email";
-		$check = $pdo->prepare($sql);
-		$check->bindParam(":username", $userName, PDO::PARAM_STR);
-		$check->bindParam(":email", $email, PDO::PARAM_STR);
-		$check->execute();
 
-		if ($check->fetch() ) {
+		$stmt = $pdo->prepare($sql);
 
-			$_SESSION["error"] = "User already exist";
+		$stmt->bindParam(":username", $userName, PDO::PARAM_STR);
+		$stmt->bindParam(":email", $email, PDO::PARAM_STR);
+		$stmt->execute();
+
+		if ($stmt->fetch() )
+		{
 			redirect("/register.php");
+
 		} else {
 
-			$query = "INSERT INTO users (first_name, last_name, username, email, password)
+			$sql = "INSERT INTO users (first_name, last_name, username, email, password)
 			VALUES (:first_name, :last_name, :username, :email, :password)";
 
-			$stmt = $pdo->prepare($query);
+			$stmt = $pdo->prepare($sql);
 
-			if (!$stmt) {
+			if (!$stmt)
+			{
 				die(var_dump($pdo->errorInfo()));
 			}
 
@@ -48,14 +51,19 @@ if (isset($_POST["first_name"], $_POST["last_name"], $_POST["email"], $_POST["us
 			$stmt->bindParam(":password", $password, PDO::PARAM_STR);
 			$stmt->execute();
 
-			$stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email;");
+			$sql = "SELECT * FROM users WHERE email = :email;";
+
+			$stmt = $pdo->prepare($sql);
+
 			$stmt->bindParam(":email", $email, PDO::PARAM_STR);
 			$stmt->execute();
+
 			$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-			// Storing userinfo in SESSION-variable
 			$_SESSION["user"] = $user;
+
 			redirect("/");
 		}
 	}
 }
+redirect("/../../register.php");

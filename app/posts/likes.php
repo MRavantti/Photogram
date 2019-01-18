@@ -4,42 +4,36 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 
-if (isset($_POST['post_id'])){
-    if (filter_var($_POST['post_id'], FILTER_VALIDATE_INT)){
-        $user = $_SESSION['user']['id'];
-        $postId = $_POST['post_id'];
+if (isset($_POST['post_id']))
+{
+	if (filter_var($_POST['post_id'], FILTER_VALIDATE_INT))
+	{
+		$user = $_SESSION['user']['id'];
+		$postId = $_POST['post_id'];
 
-        $statement = $pdo->prepare("SELECT * FROM likes WHERE user_id = :user_id AND post_id = :post_id");
+		$sql = "SELECT * FROM likes WHERE user_id = :user_id AND post_id = :post_id";
 
-        if (!$statement){
-            die(var_dump($pdo->errorInfo()));
-        }
+		$statement = $pdo->prepare($sql);
 
-        $statement->bindParam(':user_id', $user, PDO::PARAM_INT);
-        $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
+		if (!$statement)
+		{
+			die(var_dump($pdo->errorInfo()));
+		}
 
-        $statement->execute();
-        $likes = $statement->fetch(PDO::FETCH_ASSOC);
+		$statement->bindParam(':user_id', $user, PDO::PARAM_INT);
+		$statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
+		$statement->execute();
 
-        if ($likes) {
-            userDislikesPost($postId, $user, $pdo);
-            redirect('/');
-        }
-        else {
-            userLikesPost($postId, $user, $pdo);
-            redirect('/');
-        }
-    }
+		$likes = $statement->fetch(PDO::FETCH_ASSOC);
+
+		if ($likes)
+		{
+			userDislikesPost($postId, $user, $pdo);
+			redirect('/');
+
+		} else {
+			userLikesPost($postId, $user, $pdo);
+			redirect('/');
+		}
+	}
 }
-
-
-
-
-
-
-
-    // die(var_dump($likes));
-    // $posts = getAllPosts($pdo);
-    //
-    //     $likes = setLikes($id, $_SESSION['user']['id'], $pdo);
-    // die(var_dump(123));

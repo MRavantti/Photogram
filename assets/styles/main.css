@@ -3,6 +3,26 @@ a {
   color: black;
 }
 
+input {
+  border: 1px solid black;
+  border-radius: 2px;
+  margin: 5px;
+  width: 215px;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 2px;
+  width: 60vw;
+}
+
+small {
+  font-size: 15px;
+}
+
 .logo {
   z-index: 99;
 }
@@ -27,12 +47,14 @@ a {
 
 .create-post {
   align-self: center;
-  background-color: lightgrey;
-  border: 2px solid black;
+  background-color: black;
   border-radius: 6px;
   width: 77px;
   height: 27px;
   padding: 2px;
+}
+.create-post a {
+  color: white;
 }
 
 .nav {
@@ -117,7 +139,11 @@ a {
 }
 
 .new-post-container {
-  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .new-post {
@@ -137,17 +163,22 @@ a {
 }
 
 .login-section {
-  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .update-user-btn {
-  border: 1px solid black;
   border-radius: 2px;
-  background-color: lightgrey;
+  background-color: black;
   width: 90px;
   padding: 2px;
 }
-
+.update-user-btn a {
+  color: white;
+}
 .user-posts {
   display: inline-block;
   margin: 0 10px;
@@ -160,11 +191,15 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .register-section {
-  margin-top: 100px;
-  padding-left: 5px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .register-form {
@@ -173,9 +208,13 @@ a {
 
 .button {
   margin-top: 10px;
-  background-color: lightgrey;
-  border: 1px solid black;
+  color: white;
+  background-color: black;
   border-radius: 2px;
+}
+
+.button:active {
+  transform: scale(0.9);
 }
 
 .user-info {
@@ -184,4 +223,9 @@ a {
 
 .change-password {
   margin-left: 10px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
 }

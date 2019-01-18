@@ -17,7 +17,7 @@ $allPosts = getAllPosts($pdo);
 			<?php foreach ($allPosts as $post): ?>
 				<div class="feed">
 
-					<img class="post-img" src="<?='./app/posts/post_img/'.$_SESSION["user"]["id"].'/'.$post["img"];?>">
+					<img class="post-img" src="<?='./app/posts/post_img/'.$post['user_id'].'/'.$post['img'];;?>">
 					<small class="description"><?= $post["post_text"] ?></small>
 
 					<form class="like" method="post" action="/app/posts/likes.php">

@@ -3,14 +3,6 @@
 declare(strict_types=1);
 
 require __DIR__."/../app/autoload.php";
-
-if (isset($_SESSION["user"])) {
-	require __DIR__."/../app/posts/viewUserPost.php";
-	require __DIR__."/../app/posts/posts.php";
-}
-
-
-
 ?>
 
 <!DOCTYPE html>

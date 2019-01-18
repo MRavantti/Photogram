@@ -27,7 +27,7 @@ $userPosts = getPostByUser($_SESSION["user"]["id"], $pdo);
 		<?php foreach ($userPosts as $post): ?>
 			<div class="user-posts">
 				<img class="post-img" src="<?='./app/posts/post_img/'.$_SESSION["user"]["id"].'/'.$post["img"];?>">
-				<form class="editpost-form" action="/app/posts/editpost.php" method="post" enctype="multipart/form-data">
+				<form class="editpost-form" action="/app/posts/delete.php" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="page" value="<?='/profile.php;'?>">
 	        <button type="submit" name="delete" value="<?= $post["id"] ?>"> Delete post</button>
 	      </form>

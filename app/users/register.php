@@ -17,7 +17,7 @@ if (isset($_POST["first_name"], $_POST["last_name"], $_POST["email"], $_POST["us
 		$firstName = filter_var($_POST["first_name"], FILTER_SANITIZE_STRING);
 		$lastName = filter_var($_POST["last_name"], FILTER_SANITIZE_STRING);
 		$userName = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
-		$email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+		$email = strtolower(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
 		$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 		$sql = "SELECT username, email FROM users WHERE username = :username AND email = :email";

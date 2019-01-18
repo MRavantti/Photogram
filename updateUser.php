@@ -21,7 +21,7 @@
 <form class="profile-edit" action="/app/users/updateUser.php" method="post" enctype="multipart/form-data">
 
 	<label for="user_description"></label>
-	<textarea name="user_description" placeholder="<?= $_SESSION["user"]["user_description"]?>"></textarea>
+	<textarea name="user_description" placeholder="<?= ($_SESSION["user"]["user_description"]) ?: 'User Description' ?>"></textarea>
 	<br><br>
 	<label for="username">username:</label>
 	<input type="text" name="username" placeholder="<?= $_SESSION["user"]["username"] ?>">

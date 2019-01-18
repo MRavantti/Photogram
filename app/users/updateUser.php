@@ -30,7 +30,7 @@ if(isset($_FILES["avatar_img"])){
 if (isset($_POST["user_description"], $_POST["username"],$_POST["email"], $_POST["first_name"], $_POST["last_name"])) {
 	$userDesc = filter_var($_POST["user_description"], FILTER_SANITIZE_STRING);
 	$username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
-	$email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+	$email = strtolower(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
 	$firstName = filter_var($_POST["first_name"], FILTER_SANITIZE_STRING);
 	$lastName = filter_var($_POST["last_name"], FILTER_SANITIZE_STRING);
 	$id = $_SESSION["user"]["id"];

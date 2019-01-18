@@ -13,7 +13,7 @@ require __DIR__."/../app/autoload.php";
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.css">
 	<link rel="stylesheet" href="/assets/styles/main.css">
-	<title>Photogram</title>
+	<title><?php echo $config['title']; ?></title>
 </head>
 <body>
 

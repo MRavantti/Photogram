@@ -1,5 +1,10 @@
 <?php require __DIR__. "/views/header.php"; ?>
 
+<?php if (!isset($_SESSION["user"])): ?>
+
+	<?php redirect("/"); ?>
+
+<?php else: ?>
 <div class="new-post-container">
 
 	<h1>Create a new post</h1>
@@ -20,4 +25,5 @@
 
 </div>
 
+<?php endif; ?>
 <?php require __DIR__. "/views/footer.php"; ?>

@@ -5,8 +5,10 @@ declare(strict_types=1);
 ?>
 <nav class="nav">
 	<!-- Burger menu icon -->
+<?php if (isset($_SESSION["user"])): ?>
 
 	<div class="create-post"><a href="/newPost.php">New Post</a></div>
+<?php endif; ?>
 
 	<h1 class="logo"><a href="/"><?php echo $config['title']; ?></a></h1>
 
@@ -22,7 +24,7 @@ declare(strict_types=1);
 		<div class="mobile-menu-items">
 
 
-			<?php if (isset($_SESSION['user'])): ?>
+			<?php if (isset($_SESSION["user"])): ?>
 
 				<div class="mobile-home"><a href="/">Home</a></div>
 				<div class="mobile-new-post"><a href="/newPost.php">New Post</a></div>

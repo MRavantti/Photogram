@@ -229,3 +229,24 @@ small {
   display: flex;
   flex-direction: column;
 }
+
+.update-user-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.update-post-btn {
+  align-self: center;
+  background-color: black;
+  border-radius: 6px;
+  width: 77px;
+  height: 27px;
+  padding: 2px;
+}
+
+.update-post-btn a {
+  color: white;
+}

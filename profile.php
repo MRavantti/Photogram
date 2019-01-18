@@ -23,6 +23,7 @@ $userPosts = getPostByUser($_SESSION["user"]["id"], $pdo);
 		<div class="update-user-btn"><a href="updateUser.php">Edit profile</a></div>
 	</div>
 
+
 	<div class="feed-container">
 
 		<?php foreach ($userPosts as $post): ?>
@@ -30,7 +31,7 @@ $userPosts = getPostByUser($_SESSION["user"]["id"], $pdo);
 			<div class="feed">
 				<div class="post">
 
-					<img class="post-img" src="<?='./app/posts/post_img/'.$_SESSION["user"]["id"].'/'.$post["img"];?>">
+					<img class="post-img" src="<?="/app/posts/post_img/".$_SESSION["user"]["id"].'/'.$post["img"];?>">
 
 					<small class="description"><?= $post["post_text"] ?></small><br>
 				</div>
@@ -42,6 +43,7 @@ $userPosts = getPostByUser($_SESSION["user"]["id"], $pdo);
 
 					<button class="button" type="submit" name="delete" value="<?= $post["id"] ?>"> Delete post</button>
 				</form>
+
 			</div>
 
 		<?php endforeach; ?>

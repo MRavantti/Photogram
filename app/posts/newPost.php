@@ -33,7 +33,7 @@ if (isset($_FILES["img"], $_POST["post_text"]))
 	$stmt->bindParam(":post_date", $fileTime, PDO::PARAM_STR);
 	$stmt->execute();
 
-	$user = $stmt->fetch(PDO::FETCH_ASSOC);
+	$posts = $stmt->fetch(PDO::FETCH_ASSOC);
 
 	if (!is_dir(__DIR__. "/post_img/$userFolder"))
 	{
@@ -41,6 +41,8 @@ if (isset($_FILES["img"], $_POST["post_text"]))
 	}
 
 	move_uploaded_file($_FILES["img"]["tmp_name"], __DIR__."/post_img/$userFolder/$imgName");
+
+	$_SESSION["post"] = $posts;
 
 	redirect("/");
 

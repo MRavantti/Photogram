@@ -37,8 +37,10 @@ $allPosts = getAllPosts($pdo);
 		</div>
 
 	<?php else: ?>
-		<h1><a href="/register.php">Register!</a> </h1>
-		<h1><a href="/login.php">Login!</a></h1>
+		<h1>Welcome to <?= $config["title"]; ?>!</h1>
+
+		<h1 class="register-btn"><a href="/register.php">Register</a> </h1>
+		<h1 class="login-btn"><a href="/login.php">Login</a></h1>
 	<?php endif; ?>
 
 

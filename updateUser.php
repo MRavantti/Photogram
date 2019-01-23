@@ -35,22 +35,22 @@ else:
 			<br><br>
 
 			<label for="username">username:</label>
-			<input type="text" name="username" placeholder="<?= $_SESSION["user"]["username"] ?>">
+			<input type="text" name="username" value="<?= $_SESSION["user"]["username"] ?>">
 
 			<br>
 
 			<label for="email">email:</label>
-			<input type="text" name="email" placeholder="<?= $_SESSION["user"]["email"] ?>">
+			<input type="text" name="email" value="<?= $_SESSION["user"]["email"] ?>">
 
 			<br>
 
 			<label for="first_name">first name:</label>
-			<input type="text" name="first_name" placeholder="<?= $_SESSION["user"]["first_name"] ?>">
+			<input type="text" name="first_name" value="<?= $_SESSION["user"]["first_name"] ?>">
 
 			<br>
 
 			<label for="last_name">last name:</label>
-			<input type="text" name="last_name" placeholder="<?= $_SESSION["user"]["last_name"] ?>">
+			<input type="text" name="last_name" value="<?= $_SESSION["user"]["last_name"] ?>">
 
 			<br>
 

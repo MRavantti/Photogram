@@ -52,6 +52,35 @@ function getPostByUser(int $id, $pdo)
 	return $userPosts;
 }
 
+function getPostById(int $id, $pdo)
+{
+	$fileName = "/post_img/".$id;
+
+	$sql = "SELECT * FROM posts WHERE id = :id";
+
+	$stmt = $pdo->prepare($sql);
+
+	if (!$stmt)
+	{
+		die(var_dump($pdo->errorInfo()));
+	}
+
+	$stmt->bindParam(":id", $id, PDO::PARAM_STR);
+	$stmt->execute();
+
+	$id = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	for ($i=0; $i < count($id);  ++$i)
+	{
+		if (file_exists($fileName. "/".$id[$i]["img"]))
+		{
+			return $id[$i]["img"];
+		}
+	}
+	return $id;
+}
+
+
 /**
 * Get posts from all users
 * @param

@@ -8,7 +8,6 @@ declare(strict_types=1);
 <?php if (isset($_SESSION["user"])): ?>
 
 	<div class="create-post"><a href="/newPost.php">New Post</a></div>
-	<div class="update-post-btn"><a href="updatePosts.php">Edit Post</a></div>
 <?php endif; ?>
 
 	<h1 class="logo"><a href="/"><?php echo $config['title']; ?></a></h1>

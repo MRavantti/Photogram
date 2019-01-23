@@ -44,6 +44,12 @@ $userPosts = getPostByUser($_SESSION["user"]["id"], $pdo);
 					<button class="button" type="submit" name="delete" value="<?= $post["id"] ?>"> Delete post</button>
 				</form>
 
+				<form action="/updatePost.php?post=<?=$post["id"]?>" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="page" value="<?='/profile.php;'?>">
+
+					<button class="button" type="submit" name="edit" value="<?= $post["id"] ?>"> Edit post</button>
+				</form>
+
 			</div>
 
 		<?php endforeach; ?>

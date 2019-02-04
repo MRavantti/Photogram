@@ -29,7 +29,7 @@ $allPosts = getAllPosts($pdo);
 						<input type="hidden" name="post_id" value="<?= $post["id"] ?>">
 
 						<button class="button" type="submit" name="likes">Like</button>
-						<small class="likes">Likes: <?= (countPostLikes($post['id'], $pdo ) > 0) ? countPostLikes($post['id'], $pdo) : '0'; ?></small>
+						<small class="likes">Likes: <?= (countPostLikes($post['id'], $pdo) > 0) ? countPostLikes($post['id'], $pdo) : '0'; ?></small>
 					</form>
 				</div>
 

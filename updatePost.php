@@ -6,15 +6,15 @@ require __DIR__."/views/header.php";
 
 if (!isset($_SESSION["user"])):
 
-	redirect("/");
+    redirect("/");
 
 else:
 
 if (isset($_POST["edit"])):
 
-	$posts = (int)$_POST["edit"];
+    $posts = (int)$_POST["edit"];
 
-	$posts = getPostById($posts, $pdo);
+    $posts = getPostById($posts, $pdo);
 
 ?>
 <section class="update-user-container">

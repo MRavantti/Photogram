@@ -2,9 +2,8 @@
 
 require __DIR__."/views/header.php";
 
-if (!isset($_SESSION["user"])){
-
-	redirect("/");
+if (!isset($_SESSION["user"])) {
+    redirect("/");
 }
 $userPosts = getPostByUser($_SESSION["user"]["id"], $pdo);
 ?>
@@ -36,7 +35,7 @@ $userPosts = getPostByUser($_SESSION["user"]["id"], $pdo);
 					<small class="description"><?= $post["post_text"] ?></small><br>
 				</div>
 
-				<small class="likes">Likes: <?= (countPostLikes($post['id'], $pdo ) > 0) ? countPostLikes($post['id'], $pdo) : '0'; ?></small>
+				<small class="likes">Likes: <?= (countPostLikes($post['id'], $pdo) > 0) ? countPostLikes($post['id'], $pdo) : '0'; ?></small>
 
 				<form action="/updatePost.php?post=<?=$post["id"]?>" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="page" value="<?='/profile.php;'?>">

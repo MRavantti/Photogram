@@ -2,5 +2,4 @@ preset: recommended
 
 risky: false
 
-enabled:
-  - PSR2
+rules: @PSR2' => true,

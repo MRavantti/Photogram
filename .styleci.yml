@@ -1,5 +1,6 @@
-preset: recommended
-
+preset: psr2
 risky: false
 
-rules: @PSR2' => true,
+finder:
+  exclude:
+    - .git
